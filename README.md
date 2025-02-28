@@ -1,5 +1,4 @@
-# Front End Course
-#### 🏛️ Imparted in Lappeenranta University of Technology during 2022 for the Software Engineering degree.
+# Portfolio webpage
+#### 🏛️ A webpage with my Curriculum Vitae and all my projects (Maybe not all of them jet).
 
-Portfolio web page made for LUT´s course Software Development Skills: Front-End.
 - - -
