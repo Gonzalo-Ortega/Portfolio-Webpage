@@ -9,106 +9,43 @@
   <title>Welcome to my portfolio</title>
 </head>
 
-<body id="bg-img">
-
-  <div class="menu-button">
-    <div class="button-line"></div>
-    <div class="button-line"></div>
-    <div class="button-line"></div>
+<body>
+  <div id="header"></div>
+  
+  <div id="layout">
+    <aside id="sidebar"></aside>
+    <main id="content"></main>
   </div>
+  <div id="footer"></div>
 
-  <nav class="menu">
-    <ul class="menu-navigation">
-      <li class="navigation-item current"><a href="index.html">Home</a></li>
-      <li class="navigation-item"><a href="games.html">My Games</a></li>
-      <li class="navigation-item"><a href="contact.html">Contact Me</a></li>
-    </ul>
-  </nav>
+<script>
+    // Load shared components once
+    fetch("header.html").then(r => r.text()).then(t => header.innerHTML = t);
+    fetch("sidebar.html").then(r => r.text()).then(t => sidebar.innerHTML = t);
+    fetch("footer.html").then(r => r.text()).then(t => footer.innerHTML = t);
 
-  <header>
-    <div class="top-bar">
-      <a href="index.html" class="bar-link main">Gonzalo <span class="text-secondary">Ortega</span> Carpintero</a>
-      <a href="index.html" class="bar-link">About me</a>
-      <a href="index.html" class="bar-link">Teaching</a>
-      <a href="index.html" class="bar-link">Other projects</a>
-    </div>
-    <hr class="bar">
-  </header>
+    // Router function - loads only main content
+    function loadPage(page) {
+      fetch("pages/" + page + ".html")
+        .then(r => r.text())
+        .then(html => {
+          document.getElementById("content").innerHTML = html;
+        });
+    }
+
+    
+// Handle hash change (navigation)
+    window.addEventListener("hashchange", () => {
+      let page = location.hash.replace("#", "") || "about";
+      loadPage(page);
+    });
 
 
-  <main id="home">
-    <div class="about-info">
-      <div class="info">
+    // Default page
+    loadPage("about");
+  </script>
+</body>
 
-        <img src="img/portrait.jpg" alt="Gonzalo Ortega" class="bio-image">
-
-        <h3 class="small-heading">
-          Gonzalo Ortega Carpintero
-        </h3>
-
-        <div><a href="gonzalo.ortega-carpintero@city.ac.uk" class="navigation-link">
-            gonzalo.ortega-carpintero@city.ac.uk
-          </a></div>
-
-        <div class="icons">
-          <a href="https://www.linkedin.com/in/gonzalo-ortega-">
-            <i class="fab fa-linkedin fa-2x"></i>
-          </a>
-          <a href="https://gonzalo-ortega.itch.io/">
-            <i class="fa-brands fa-itch-io fa-2x"></i>
-          </a>
-          <a href="https://github.com/Gonzalo-Ortega">
-            <i class="fa-brands fa-github fa-2x"></i>
-          </a>
-          <a href="https://orcid.org/0009-0005-4258-7537">
-            <i class="fa-brands fa-orcid fa-2x"></i>
-          </a>
-        </div>
-
-      </div>
-      <div class="bio">
-        <h2 class="large-heading"> About me </h2>
-        <p>
-          Hello! I'm a first year Mathematics PHD student at <a
-            href="https://www.citystgeorges.ac.uk/about/schools/science-technology/mathematics">
-            City St Georges, University of London </a> under the supervision of Dr. Ximena Fernández. My research
-          interests include Algebraic Topology and Topological Data Analysis. We are currently working on alternative
-          methods to study the persistence of spaces beyond the use of homology, working mainly with computations over
-          the fundamental group and its presentations.
-        </p>
-
-        <h2 class="large-heading">
-          My studies
-        </h2>
-        <p>
-          I studied my Bachelor's in Math and Software engeneering in Universidad Rey Juan Carlos and my Master's in
-          Mathematics and Applications in Universidad Autónoma de Madrid.
-
-          I am also a self-thought indie game developer, having take part in several online world-wide game jams.</p>
-
-        <a class="text-secondary" href="pdf\Gonzalo Ortega - Curriculum Vitae.pdf" target="_blank">View CV in PDF</a>
-
-        <h2>Teaching</h2>
-        <h3>Teaching assistant</h3>
-        <li><b>City St Georges, University of London</b> Real Analysis Module</li>
-        <li><b>City St Georges, University of London</b> Programing and Data Science for Profesions Module</li>
-
-        <h2 class="large-heding"> Selected attended conferences </h2>
-        <p>
-        <ul>
-          <li> London-Oxford-Paris TDA Seminar, City St Ghorghes, University of London </li>
-          <li> Jornadas Analisis tolologico de datos 2026, Sevile, Spain </li>
-        </ul>
-        </p>
-
-      </div>
-    </div>
-  </main>
-
-  <footer id="main-footer">
-    Copyright &copy; 2026 Gonzalo Ortega - <a class="text-secondary"
-      href="https://github.com/Gonzalo-Ortega/Portfolio-Webpage"> Go to this page's repo </a>
-  </footer>
 
   <script src="js/main.js"></script>
 </body>
