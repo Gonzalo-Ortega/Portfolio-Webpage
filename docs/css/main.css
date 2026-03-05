@@ -56,12 +56,11 @@ header {
 }
 
 .sidebar {
-  padding: 1rem;
   position: fixed;
   height: fit-content;
-  max-width: 300px;
+  max-width: 270px;
   word-wrap: break-word; 
-  top: 60px;
+  top: 100px;
 
   .bio-image {
     grid-area: bio-image;
