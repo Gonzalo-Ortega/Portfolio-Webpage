@@ -12,7 +12,7 @@ body {
   width: 90%;
   margin: 0 auto;
   overflow-x: hidden;
-  height: 100%;
+  max-height: calc(100vh - 120px);
   background: var(--light);
   color: var(--dark);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -76,16 +76,13 @@ header {
 }
 
 .page {
-  min-height: 100dvh;      /* full viewport height, better with mobile UI */
+  min-height: calc(100vh - 100px);
   display: flex;
   flex-direction: column;
 }
 
 footer {
-  text-align: center;   /* center text */
-  padding: 1rem;
-  height: 30px;
-  flex-shrink: 0;         /* optional: remove if you want auto height */
+  text-align: center;
 }
 
 .top-bar {

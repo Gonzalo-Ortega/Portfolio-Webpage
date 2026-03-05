@@ -27,10 +27,43 @@ function initMenu() {
           if (showMenu) {
             toggleMenu();
           }
+          // Update current page indicator
+          updateCurrentPage();
         });
       }
     });
   }
+
+  // Initial update of current page
+  updateCurrentPage();
+}
+
+// Update the current class based on the current page
+function updateCurrentPage() {
+  const currentPage = location.hash.replace("#", "") || "about";
+  
+  navigationItems.forEach(item => {
+    const link = item.querySelector('a');
+    if (link) {
+      const href = link.getAttribute('href').replace("#", "");
+      if (href === currentPage) {
+        item.classList.add('current');
+      } else {
+        item.classList.remove('current');
+      }
+    }
+  });
+
+  // Update top-bar links
+  const barLinks = document.querySelectorAll('.bar-link');
+  barLinks.forEach(link => {
+    const href = link.getAttribute('href').replace("#", "");
+    if (href === currentPage) {
+      link.classList.add('main');
+    } else {
+      link.classList.remove('main');
+    }
+  });
 }
 
 // In case the header is already in the DOM when this script runs

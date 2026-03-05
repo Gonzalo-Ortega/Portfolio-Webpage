@@ -21,8 +21,9 @@
       <aside id="sidebar"></aside>
       <main id="content"></main>
     </div>
-    <div id="footer"></div>
+    
   </div>
+  <div id="footer"></div>
 
   <script>
     // Load shared components once
@@ -49,6 +50,9 @@
     window.addEventListener("hashchange", () => {
       let page = location.hash.replace("#", "") || "about";
       loadPage(page);
+      if (typeof updateCurrentPage === 'function') {
+        updateCurrentPage();
+      }
     });
 
 
