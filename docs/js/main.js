@@ -28,3 +28,13 @@ function toggleMenu() {
     showMenu = false;
   }
 }
+
+// In your index.js or inside a script tag:
+const params = new URLSearchParams(window.location.search);
+const path = params.get("redirect");
+
+if (path) {
+  history.replaceState(null, "", path);
+  // Now your SPA router (or your own JS logic) can load the correct section
+}
+
