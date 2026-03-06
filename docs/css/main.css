@@ -1,9 +1,7 @@
 :root {
   --primary: #148F77;
   --dark: #000000;
-  --accent: #292f2c;
   --light: #FFFAF0;
-  --white: #fff;
   --transition: 0.1s ease-out;
   --slow-transition: 0.3s ease-out;
 }
@@ -12,13 +10,13 @@ body {
   max-width: 1100px;
   width: 90%;
   margin: 0 auto;
-  overflow-x: hidden;
-  max-height: calc(100vh - 120px);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   background: var(--light);
   color: var(--dark);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5;
-  padding: 60px;
 }
 
 h1,
@@ -70,16 +68,19 @@ p {
 .content {
   font-size: 1.25rem;
   margin-left: 300px;
+  margin-top: 80px;
 }
 
 .page {
-  min-height: calc(100vh - 100px);
+  flex: 1;
   display: flex;
   flex-direction: column;
 }
 
 footer {
   text-align: center;
+  margin-top: auto;
+  padding: 2rem 0;
 }
 
 header {
@@ -107,6 +108,7 @@ header {
       &:hover {
         color: var(--primary);
       }
+
       &.main {
         font-weight: bold;
       }
@@ -154,6 +156,7 @@ header {
       transform: translate3d(600px, 0, 0);
       transition: var(--slow-transition);
       text-transform: full-size-kana;
+
       a {
         color: var(--dark);
       }
@@ -224,30 +227,11 @@ header {
   }
 }
 
-/* BUTTONS */
-.button,
-.button-light,
-.button-dark {
-  display: block;
-  padding: 0.5rem 1rem;
-  border: 0;
-  margin-bottom: 0.3rem;
-  transition: var(--transition);
-
-  &:hover {
-    background: var(--primary);
-    color: black;
-  }
-}
-
-.button-light {
-  background: #b4bdb9;
-  color: #333;
-}
-
-.button-dark {
-  background: black;
-  color: var(--white);
+.game-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
 }
 
 /* MEDIA QUERIES */
@@ -260,14 +244,11 @@ header {
 }
 
 @media (max-width: 720px) {
-  #layout {
-    flex-direction: column;
-  }
-
   .sidebar {
     position: static;
     max-width: none;
     text-align: center;
+    margin-top: 20px;
 
     .small-heading {
       text-align: center;
@@ -275,8 +256,8 @@ header {
   }
 
   .content {
-    margin-left: -2.5%;
-    width: 95%;
+    margin-top: 0;
+    margin-left: 0;
   }
 
   .menu-navigation {
