@@ -59,6 +59,8 @@ p {
   top: 100px;
 
   .bio-image {
+    width: 220px;
+    height: auto;
     grid-area: bio-image;
     border-radius: 50%;
     border: 3px solid var(--primary);
